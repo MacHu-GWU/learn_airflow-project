@@ -1,0 +1,2 @@
+pathlib_mate==1.0.1
+pynamodb==5.1.0

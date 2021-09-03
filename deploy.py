@@ -25,7 +25,7 @@ def deploy_to_s3(boto_ses, bucket):
 
 
 if __name__ == "__main__":
-    # deploy_to_local()
+    deploy_to_local()
     boto_ses = boto3.session.Session()
     bucket = "aws-data-lab-sanhe-for-everything"
     deploy_to_s3(boto_ses=boto_ses, bucket=bucket)
