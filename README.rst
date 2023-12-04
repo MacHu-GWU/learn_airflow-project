@@ -1,33 +1,36 @@
 
-.. image:: https://travis-ci.org/MacHu-GWU/learn_airflow-project.svg?branch=master
-    :target: https://travis-ci.org/MacHu-GWU/learn_airflow-project?branch=master
+.. image:: https://readthedocs.org/projects/learn-airflow/badge/?version=latest
+    :target: https://learn-airflow.readthedocs.io/en/latest/
+    :alt: Documentation Status
 
-.. image:: https://codecov.io/gh/MacHu-GWU/learn_airflow-project/branch/master/graph/badge.svg
+.. image:: https://github.com/MacHu-GWU/learn_airflow-project/workflows/CI/badge.svg
+    :target: https://github.com/MacHu-GWU/learn_airflow-project/actions?query=workflow:CI
+
+.. image:: https://codecov.io/gh/MacHu-GWU/learn_airflow-project/branch/main/graph/badge.svg
     :target: https://codecov.io/gh/MacHu-GWU/learn_airflow-project
 
-.. image:: https://img.shields.io/pypi/v/learn_airflow.svg
-    :target: https://pypi.python.org/pypi/learn_airflow
+.. image:: https://img.shields.io/pypi/v/learn-airflow.svg
+    :target: https://pypi.python.org/pypi/learn-airflow
 
-.. image:: https://img.shields.io/pypi/l/learn_airflow.svg
-    :target: https://pypi.python.org/pypi/learn_airflow
+.. image:: https://img.shields.io/pypi/l/learn-airflow.svg
+    :target: https://pypi.python.org/pypi/learn-airflow
 
-.. image:: https://img.shields.io/pypi/pyversions/learn_airflow.svg
-    :target: https://pypi.python.org/pypi/learn_airflow
+.. image:: https://img.shields.io/pypi/pyversions/learn-airflow.svg
+    :target: https://pypi.python.org/pypi/learn-airflow
+
+.. image:: https://img.shields.io/badge/Release_History!--None.svg?style=social
+    :target: https://github.com/MacHu-GWU/learn_airflow-project/blob/main/release-history.rst
 
 .. image:: https://img.shields.io/badge/STAR_Me_on_GitHub!--None.svg?style=social
     :target: https://github.com/MacHu-GWU/learn_airflow-project
 
 ------
 
-
 .. image:: https://img.shields.io/badge/Link-Document-blue.svg
-    :target: http://learn_airflow.my-docs.com/index.html
+    :target: https://learn-airflow.readthedocs.io/en/latest/
 
 .. image:: https://img.shields.io/badge/Link-API-blue.svg
-    :target: http://learn_airflow.my-docs.com/py-modindex.html
-
-.. image:: https://img.shields.io/badge/Link-Source_Code-blue.svg
-    :target: http://learn_airflow.my-docs.com/py-modindex.html
+    :target: https://learn-airflow.readthedocs.io/en/latest/py-modindex.html
 
 .. image:: https://img.shields.io/badge/Link-Install-blue.svg
     :target: `install`_
@@ -42,12 +45,11 @@
     :target: https://github.com/MacHu-GWU/learn_airflow-project/issues
 
 .. image:: https://img.shields.io/badge/Link-Download-blue.svg
-    :target: https://pypi.org/pypi/learn_airflow#files
+    :target: https://pypi.org/pypi/learn-airflow#files
 
 
 Welcome to ``learn_airflow`` Documentation
 ==============================================================================
-
 Documentation for ``learn_airflow``.
 
 
@@ -56,17 +58,14 @@ Documentation for ``learn_airflow``.
 Install
 ------------------------------------------------------------------------------
 
-``learn_airflow`` is released on PyPI, so all you need is:
+``learn_airflow`` is released on PyPI, so all you need is to:
 
 .. code-block:: console
 
-    $ pip install learn_airflow
+    $ pip install learn-airflow
 
 To upgrade to latest version:
 
 .. code-block:: console
 
-    $ pip install --upgrade learn_airflow
-
-airflow db init
-airflow users create --username admin --firstname Sanhe --lastname Hu --role Admin --email sanhehu@amazon.com
+    $ pip install --upgrade learn-airflow

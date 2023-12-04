@@ -2,12 +2,12 @@
 # for more info: https://coverage.readthedocs.io/en/latest/config.html
 [run]
 omit =
-    learn_airflow/_version.py
-    learn_airflow/cli.py
-    learn_airflow/pkg/*
     learn_airflow/docs/*
     learn_airflow/tests/*
-    learn_airflow/handlers/*
+    learn_airflow/vendor/*
+    learn_airflow/_version.py
+    learn_airflow/cli.py
+    learn_airflow/paths.py
 
 [report]
 # Regexes for lines to exclude from consideration
