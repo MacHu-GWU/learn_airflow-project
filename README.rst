@@ -1,4 +1,3 @@
-
 .. image:: https://readthedocs.org/projects/learn-airflow/badge/?version=latest
     :target: https://learn-airflow.readthedocs.io/en/latest/
     :alt: Documentation Status
@@ -51,6 +50,10 @@
 Welcome to ``learn_airflow`` Documentation
 ==============================================================================
 Documentation for ``learn_airflow``.
+
+.. code-block:: bash
+
+    pip install "apache-airflow[celery]==2.7.3" --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.7.3/constraints-3.8.txt"
 
 
 .. _install:
