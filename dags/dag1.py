@@ -7,7 +7,7 @@
 from datetime import datetime
 from airflow.decorators import dag, task
 
-dag_id = "dag1"
+dag_id = "my_dag1"
 
 
 @dag(
