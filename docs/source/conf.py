@@ -236,16 +236,16 @@ jinja_contexts = {
 }
 
 # Api Reference Doc
-import docfly
-
-docfly.ApiReferenceDoc(
-    conf_file=__file__,
-    package_name=package_name,
-    ignored_package=[
-        "%s.docs" % package_name,
-        "%s.tests" % package_name,
-        "%s.vendor" % package_name,
-        "%s._version" % package_name,
-        "%s.paths" % package_name,
-    ]
-).fly()
+# import docfly
+#
+# docfly.ApiReferenceDoc(
+#     conf_file=__file__,
+#     package_name=package_name,
+#     ignored_package=[
+#         "%s.docs" % package_name,
+#         "%s.tests" % package_name,
+#         "%s.vendor" % package_name,
+#         "%s._version" % package_name,
+#         "%s.paths" % package_name,
+#     ]
+# ).fly()

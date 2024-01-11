@@ -28,7 +28,7 @@ If you use Other Operator
 2. 如果失败, 并且是我们需要特别处理的 Exception, 那么我们处理之后并返回一个跟原本需要返回的值数据结构类似, 但是能反映出来这个 task 是由异常的值即可. 这个值需要能 JSON serializable.
 3. 如果失败, 并且是未知的异常, 那么原地 raise 即可.
 
-请看下面的实例代码
+请看下面的示例代码.
 
 .. code-block:: python
 
@@ -108,8 +108,8 @@ If you use Other Operator
 
 下面我们给出了一个示例 dag:
 
-.. literalinclude:: ../../../dags/dag3_mark_task_as_succeeded_for_certain_error.py
-   :language:
+.. literalinclude:: ../../../../dags/dag3_mark_task_as_succeeded_for_certain_error.py
+   :language: python
    :linenos:
 
 最终的 Log 如下::
