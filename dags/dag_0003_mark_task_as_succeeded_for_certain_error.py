@@ -1,25 +1,14 @@
 # -*- coding: utf-8 -*-
 
-import datetime
 import pendulum
 
-from airflow import DAG
+from airflow.decorators import dag
 from airflow.operators.python import PythonOperator
 from airflow.operators.empty import EmptyOperator
 
 
 class MyCustomException(Exception):
     pass
-
-
-def run_task1():
-    """
-    该任务 100% 会抛出一个自定义异常.
-    """
-    print("Start task1")
-    raise MyCustomException("This is a custom exception")
-    print("End task1")
-    return "Returned by task 1"
 
 
 class MyPythonOperator(PythonOperator):
@@ -33,13 +22,23 @@ class MyPythonOperator(PythonOperator):
             raise e
 
 
-with DAG(
-    dag_id="my_dag3_mark_task_as_succeeded_for_certain_error",
-    schedule=None,
-    start_date=pendulum.datetime(2021, 1, 1, tz="UTC"),
-    dagrun_timeout=datetime.timedelta(seconds=10),
+def run_task1():
+    """
+    该任务 100% 会抛出一个自定义异常.
+    """
+    print("Start task1")
+    raise MyCustomException("This is a custom exception")
+    print("End task1")
+    return "Returned by task 1"
+
+
+@dag(
+    dag_id="dag_0003_mark_task_as_succeeded_for_certain_error",
+    start_date=pendulum.datetime(2021, 1, 1, tz="UTC"),  # pendulum 是一个更可靠的时区库
+    schedule=None,  # 不自动执行, 你点了 Trigger DAG 才会执行
     catchup=False,
-):
+)
+def my_dag():
     task1 = MyPythonOperator(
         task_id="task1",
         python_callable=run_task1,

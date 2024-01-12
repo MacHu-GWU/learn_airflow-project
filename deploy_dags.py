@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 
 """
-deploy all dags script from ``${dir_project_root}/dags`` to ``${HOME}/airflow/dags``.
+Automatically deploy all dags script from
+``${dir_project_root}/dags`` to ``${HOME}/airflow/dags``, make them available
+in Airflow UI.
 
-This screen will perform deployment every 1 minutes to keep them in sync.
+This script will perform deployment every 1 seconds to keep them in sync.
 """
 
 import time
@@ -32,10 +34,12 @@ def deploy(
     for p_src in dir_repo_dags.iterdir():
         if p_src.suffix == ".py":
             p_dst = dir_airflow_dags.joinpath(p_src.name)
+            # if file exists, compare md5, if not match, then copy it
             if p_dst.exists():
                 if get_md5(p_src) != get_md5(p_dst):
                     print(f"deployed: {p_dst.name}")
                     shutil.copy(p_src, p_dst)
+            # if file not exists, just copy it
             else:
                 print(f"deployed: {p_dst.name}")
                 shutil.copy(p_src, p_dst)

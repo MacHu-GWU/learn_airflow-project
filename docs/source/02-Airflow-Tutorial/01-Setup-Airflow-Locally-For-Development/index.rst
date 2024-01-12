@@ -1,3 +1,5 @@
+.. _setup-airflow-locally-for-development:
+
 Setup Airflow Locally For Development
 ==============================================================================
 
@@ -52,21 +54,36 @@ Verify the installation
 
 Write Your First DAG
 ------------------------------------------------------------------------------
+这里给出了一个最简单, 只有一个 task 和一步, 并且 task 是一个简单的 Python 函数的例子.
+
 .. literalinclude:: ../../../dags/dag1.py
    :language: python
    :linenos:
 
+下面我还给出了一些最佳实践.
+
+**在 Python 模块中而不是 DAG 中实现你的业务逻辑**
+
+    在开发 DAG 的时候, 我建议把底层的业务逻辑放在你的 Python 模块中实现, 而不要放在 DAG 中. 你的 Python 模块应该对业务逻辑进行了充分的单元测试. 而 DAG 脚本主要负责只是把业务逻辑 import 进来调用, 并做一些读取 parameter 等杂活. 这样有助于保持你的代码库有序, 方便用测试 debug 你的业务逻辑.
+
 
 Deploy Your DAG
 ------------------------------------------------------------------------------
+对于本地 standalone 的 Airflow, 它会去 ``${AIRFLOW_HOME}/dags`` 这个路径下去找 python 文件. 如果有, 就尝试 import 进来, 如果成功 import 则视为部署完成, 你就可以开始启用并测试了. 这个 ``${AIRFLOW_HOME}`` 是在前节提到的的 ``${HOME}/airflow/airflow.cfg`` 中配置的. 默认就是 ``${HOME}/airflow``.
+
+在本项目中, 我们把 dag 放在 git repo 中的 ``dags`` 目录下, 然后将其拷贝到 ``${HOME}/airflow/dags`` 即可. 这里我给出了一个自动化脚本, 它每秒都会扫描一次两个目录, 并尝试检查有没有不同, 有不同则自动拷贝过去.
+
 .. literalinclude:: ../../../deploy_dags.py
    :language: python
    :linenos:
 
+拷贝过去之后 airflow UI 里有一个选项是 auto-refresh. 它能自动去读 dags 目录并且 import dags. 但是这个功能的延迟比较高, 有时候甚至需要等 1 分钟看到新的 dag code. 我建议直接 Ctrl + C 杀死 Airflow 进程, 然后重新运行 ``airflow standalone`` 会比较方便. 毕竟是本地运行, 重启非常快.
+
 
 Run DAG
 ------------------------------------------------------------------------------
+你在 UI 中输入你的 dag id 应该能搜到你的 DAG. 注意, dag id 不是你的文件名, 而是你的 dag 入口函数中的 ``dag_id`` 参数的值.
+
 1. 自动运行: 根据 dag 中的 schedule 定义, 由 Airflow 调度器来启动你的 dag run.
 2. 在 UI 中手动运行: 在 UI 中手动点击 ``Trigger DAG`` (那个三角形播放按钮) 按钮来启动你的 dag run.
 3. 用 CLI 运行: 使用 ``airflow dags trigger ${dag_id}`` 命令来启动你的 dag run. 如果你的 Airflow 在远程服务器上而你在本地, 则你需要一些配置工作.
-
