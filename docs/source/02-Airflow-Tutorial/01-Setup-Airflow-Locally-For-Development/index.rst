@@ -56,7 +56,7 @@ Write Your First DAG
 ------------------------------------------------------------------------------
 这里给出了一个最简单, 只有一个 task 和一步, 并且 task 是一个简单的 Python 函数的例子.
 
-.. literalinclude:: ../../../dags/dag1.py
+.. literalinclude:: ../../../dags/dag_0001_single_task.py
    :language: python
    :linenos:
 

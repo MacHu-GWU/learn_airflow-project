@@ -41,6 +41,9 @@ def my_dag():
         on_success_callback=on_success_callback,
     )
     def task1():
+        """
+        Task 1 永远成功.
+        """
         print("Start task1")
         print("End task1")
 
@@ -51,6 +54,9 @@ def my_dag():
         on_retry_callback=on_retry_callback,
     )
     def task2():
+        """
+        Task 2 只有 10% 的概率成功. 但是我们重试 10 次, 按概率 10 次全部失败的概率是 35%, 并不低.
+        """
         import random
 
         print(f"Start task2")
@@ -68,6 +74,9 @@ def my_dag():
         on_failure_callback=on_failure_callback,
     )
     def task3():
+        """
+        Task 3 永远失败.
+        """
         print("Start task3")
         raise Exception("Always failed")
         print("End task3")
