@@ -1,3 +1,5 @@
+.. _mark-task-as-succeeded-for-certain-error:
+
 Mark Task as Succeeded for Certain Error
 ==============================================================================
 
@@ -108,9 +110,11 @@ If you use Other Operator
 
 下面我们给出了一个示例 dag:
 
-.. literalinclude:: ../../../../dags/dag_0003_mark_task_as_succeeded_for_certain_error.py
-   :language: python
-   :linenos:
+.. dropdown:: dag_0003_mark_task_as_succeeded_for_certain_error.py
+
+    .. literalinclude:: ../../../../dags/dag_0003_mark_task_as_succeeded_for_certain_error.py
+       :language: python
+       :linenos:
 
 最终的 Log 如下::
 

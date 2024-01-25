@@ -45,3 +45,6 @@ def my_dag():
     )
     task2 = EmptyOperator(task_id="task2")
     task1 >> task2
+
+
+run_dag = my_dag()  # 你最后必须要实例化这个 DAG 对象 (它是被 @dag 装饰器装饰的函数的返回值, 不是原本的函数了)
